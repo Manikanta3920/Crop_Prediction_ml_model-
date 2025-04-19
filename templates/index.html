@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop-Prediction</title>
+    <!-- <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Hind:300" rel="stylesheet" type="text/css"> -->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Open+SAns+Condesed:300" rel="stylesheet" type="text/css"> -->
+<style>
+    /* body{
+        background-image: url('/static/farm.jpg');
+        background-size: cover;
+        margin-top: 100px;
+        margin-bottom: 100px;
+        margin-left: 500px;
+        margin-right: 150px;
+    }
+    h1{
+        margin-left: 100px;
+    }
+    input{
+        width: 70%;
+        padding:12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border-bottom: 4px solid black;
+    }
+    button{
+        background-color: #4CAF50;
+        margin: auto;
+        color: white;
+        padding: 15px 100px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin-left: 170px;
+        }
+        #pred1{
+            margin-top: 70px;
+            margin-left: 160px;
+            color: white;
+        } */
+
+
+    body {
+        background-image: url('/static/farm.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .login {
+        margin-top: 50px;
+        margin-bottom: 50px;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        border-radius: 30px;
+        padding: 40px;
+        width: 500px;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    }
+
+    h1 {
+        text-align: center;
+        color: white;
+        margin-bottom: 30px;
+        text-shadow: 1px 1px 2px #000;
+    }
+
+    input {
+        width: 470px;
+        padding: 12px 15px;
+        margin: 10px 0;
+        border: none;
+        border-radius: 10px;
+        outline: none;
+        font-size: 16px;
+        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    }
+
+    button {
+        width: 100%;
+        background-color: #28a745;
+        color: white;
+        padding: 15px;
+        font-size: 16px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        margin-top: 20px;
+    }
+
+    button:hover {
+        background-color: #218838;
+    }
+
+    #pred1 {
+        margin-top: 30px;
+        text-align: center;
+        color: #fff;
+        font-weight: bold;
+        text-shadow: 1px 1px 2px #000;
+    }
+
+    @media screen and (max-width: 480px) {
+        .login {
+            width: 90%;
+            padding: 30px;
+        }
+
+        h1 {
+            font-size: 22px;
+        }
+
+        button {
+            font-size: 14px;
+        }
+    }
+
+
+
+
+
+
+</style>
+</head>
+<body>
+    <div class="login">
+        <h1>Crop Prediction Model</h1>
+        <form action="{{url_for('predict')}}" method="post">
+            <input type="text" name="Nitrogen" placeholder="Nitrogen" required>
+            <input type="text" name="Phosporous" placeholder="Phosporous" required>
+            <input type="text" name="Potassium" placeholder="Potassium" required>
+            <input type="text" name="Temperature" placeholder="Temperature" required>
+            <input type="text" name="Humidity" placeholder="Humidity" required>
+            <input type="text" name="pH" placeholder="pH" required>
+            <input type="text" name="Rainfall" placeholder="Rainfall" required>
+
+            <button type="submit" class="btn-btn-primary btn-block btn-large">Predict</button>
+        </form>
+
+
+        <h1 id="pred1">
+            {{Predicted_text}}
+        </h1>
+    </div>
+</body>
+</html>
